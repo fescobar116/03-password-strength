@@ -17,4 +17,16 @@ class PasswordStrengthValidatorTest {
         result = getPasswordStrength("abcdefghijk");
         assertEquals(PasswordStrengthEnum.WEAK, result);
     }
+
+    @Test
+    void mediumPasswordTest(){
+        PasswordStrengthEnum result = getPasswordStrength("1234abcd");
+        assertEquals(PasswordStrengthEnum.MEDIUM, result);
+    }
+
+    @Test
+    void strongPasswordTest(){
+        PasswordStrengthEnum result = getPasswordStrength("1234abc*/");
+        assertEquals(PasswordStrengthEnum.STRONG, result);
+    }
 }
